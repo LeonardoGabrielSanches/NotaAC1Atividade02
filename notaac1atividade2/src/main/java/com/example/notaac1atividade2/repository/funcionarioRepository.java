@@ -5,9 +5,8 @@ import com.example.notaac1atividade2.entidade.Funcionario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * funcionarioRepository
+ * FuncionarioRepository
  */
-public interface funcionarioRepository extends JpaRepository<Funcionario,Integer> {
+public interface FuncionarioRepository extends JpaRepository<Funcionario,Integer>{
 
-    
 }
