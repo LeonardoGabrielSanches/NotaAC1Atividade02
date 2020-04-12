@@ -8,6 +8,8 @@ import com.example.notaac1atividade2.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,5 +32,20 @@ public class FuncionarioController {
         modelAndView.addObject("funcionarios", listaFuncionarios);
 
         return modelAndView;
+    }
+
+    @GetMapping("/cadastro")
+    public String cadastro(){
+        return "cadastro";
+    }
+
+    @PostMapping("/cadastro")
+    public ModelAndView insertFuncionario(@ModelAttribute Funcionario funcionario){
+        ModelAndView modelAndView = new ModelAndView("funcionarios");
+        
+        funcionarioService.InsertFuncionario(funcionario);
+
+ //       modelAndView.addObject("funcionarios",funcionario);
+        return modelAndView;       
     }
 }

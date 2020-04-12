@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Funcionários</h1>
     <table>
-        <tr th:each = "">
-
+        <tr th:each="funcionario : ${funcionarios}">
+            <td th:text = "${funcionario?.id}"></td>
+            <td th:text = "${funcionario?.nome}"></td>
+            <td th:text = "${funcionario?.cpf}"></td>
+            <td th:text = "${funcionario?.funcao}"></td>
+            <td th:text = "${funcionario?.salario}"></td>
         </tr>
     </table>
 </body>
+
 </html>
