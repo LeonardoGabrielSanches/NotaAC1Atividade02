@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  * funcionario
@@ -18,27 +19,18 @@ public class Funcionario implements Serializable {
      *
      */
     private static final long serialVersionUID = 1L;
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(nullable = false, length = 150)
     private String nome;
-    @Column(nullable = false, length = 14)
+    @NotNull
+    @Column(length = 14)
     private String cpf;
     @Column(nullable = false)
     private String funcao;
     @Column(nullable = false)
     private double salario;
-
-    public Funcionario(){
-        
-    }
-
-    public Funcionario(String nome, String cpf, String funcao, double salario) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.funcao = funcao;
-        this.salario = salario;
-    }
 
     public int getId() {
         return id;

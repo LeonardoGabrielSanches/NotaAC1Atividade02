@@ -23,29 +23,21 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioService funcionarioService;
 
-    @GetMapping("/funcionarios")
-    public ModelAndView getAllFuncionarios(){
+    @GetMapping("/funcionario")
+    public ModelAndView getAllFuncionarios() {
         ModelAndView modelAndView = new ModelAndView("funcionarios");
 
-        List<Funcionario> listaFuncionarios =funcionarioService.getAllFuncionarios();
+        List<Funcionario> listaFuncionarios = funcionarioService.getAllFuncionarios();
 
         modelAndView.addObject("funcionarios", listaFuncionarios);
 
         return modelAndView;
     }
 
-    @GetMapping("/cadastro")
-    public String cadastro(){
-        return "cadastro";
-    }
-
     @PostMapping("/cadastro")
-    public ModelAndView insertFuncionario(@ModelAttribute Funcionario funcionario){
-        ModelAndView modelAndView = new ModelAndView("funcionarios");
-        
+    public String insertFuncionario(@ModelAttribute Funcionario funcionario) {
         funcionarioService.InsertFuncionario(funcionario);
-
- //       modelAndView.addObject("funcionarios",funcionario);
-        return modelAndView;       
+        
+        return "redirect:/funcionario";
     }
 }
