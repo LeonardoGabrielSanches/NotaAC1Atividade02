@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Funcionários</title>
 </head>
 
 <body>
     <h1>Cadastrar funcionário</h1>
     <form th:action="@{/cadastro}" method="POST">
-        <input type="text" name = "nome" placeholder="Nome">
-        <input type="text" name = "cpf" placeholder="CPF">
-        <input type="text" name = "funcao" placeholder="Função">
-        <input type="text" name = "salario" placeholder="Salário">
+        <input type="text" name = "nome" placeholder="Nome" required>
+        <input type="text" name = "cpf" placeholder="CPF" required>
+        <input type="text" name = "funcao" placeholder="Função" required>
+        <input type="text" name = "salario" placeholder="Salário" required>
         <input type="submit" value="Cadastrar" />
     </form>
 
@@ -27,6 +27,7 @@
             <td th:text = "${funcionario?.salario}"></td>
         </tr>
     </table>
+
 </body>
 
 </html>

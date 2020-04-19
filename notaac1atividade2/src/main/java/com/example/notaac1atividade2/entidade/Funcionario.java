@@ -22,14 +22,15 @@ public class Funcionario implements Serializable {
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = false, length = 150)
+    @NotNull
+    @Column(length = 150)
     private String nome;
     @NotNull
     @Column(length = 14)
     private String cpf;
-    @Column(nullable = false)
+    @NotNull
     private String funcao;
-    @Column(nullable = false)
+    @NotNull
     private double salario;
 
     public int getId() {
